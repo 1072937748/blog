@@ -1,2 +1,2 @@
-- [前言](/preface.md)
+- [吐槽](/wdnmd.md)
 - [如何写md](/example.md)
