@@ -95,4 +95,8 @@ component: () => import(/* webpackChunkName: "redireact" */ '@/components/redire
   9. 导航被确认。
   10. 调用全局的 afterEach 钩子。
   11. 触发 DOM 更新。
-  12. 用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
+  12. 用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。  
+
+
+  ### vue-cli
+  see you..
