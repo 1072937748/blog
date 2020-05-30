@@ -38,3 +38,5 @@ nothing happen。`yarn global delete vuepress`。
 5. Source 选择 master branch /docs folder
 6. Source上面一行：Your site is published at https://`<username>`.github.io/`<repo>`/ 就是你的网址
 
+#### tips:  
+> - Search功能，<https://docsify.js.org/#/plugins?id=full-text-search>

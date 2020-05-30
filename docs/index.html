@@ -8,22 +8,32 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="/assets/index.css">
+  <script src="//cdn.jsdelivr.net/npm/docsify-plugin-codefund/index.js"></script>
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: 'XZ的破笔记',
+      name: '<div>XZ的破笔记</div><i class="halfFs">白嫖从来都是我们底层人民的快乐</i>',
       repo: 'https://github.com/1072937748/blog/',
       loadNavbar: true,
       loadSidebar: true,
-      subMaxLevel: 4,
-      noCompileLinks: [],
+      subMaxLevel: 3,
       topMargin: 0,
-      search: 'auto'
+      search: {
+        maxAge: 86400000,
+        depth: 4,
+        paths: 'auto',
+        placeholder: 'Search',
+        noData: '咩都唔',
+      },
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-php.min.js"></script>
 </body>
 </html>
