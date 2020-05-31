@@ -233,7 +233,7 @@ const FooBarObserver = observe(FooBar, (property, value) => {
 console.log(FooBarObserver.open) // false
 FooBarObserver.open = true // FooBar is open!!!
 ```
-如果对象带有`configurable: false` 跟`writable: false` 属性，则代理失效。
+如果对象带有`configurable(是否可删除): false` 跟`writable(是否可修改): false` 属性，则代理失效。 const的实现由此而来。
 ### Regex对象的扩展
 - i 忽略大小写
 ```
