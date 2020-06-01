@@ -13,4 +13,4 @@
 数据修改触发setter，监听器通知进行修改，通过对比新旧vdom树得到最小修改，就是patch，然后修改这些差异。
 # 开写
 [miniVue.js](https://github.com/1072937748/blog/tree/master/docs/assets/js/miniVue.js)
-[compile](https://github.com/1072937748/blog/tree/master/docs/assets/js/compile.js)
+[compile.js](https://github.com/1072937748/blog/tree/master/docs/assets/js/compile.js)

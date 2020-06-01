@@ -11,6 +11,9 @@
   - [Vue源码解析](Vue源码.md)
   - [Webpack](Webpack.md)
 
+- HTTP那些事儿
+  - [HTTP权威指南](HTTP权威指南.md)
+
 - [吐槽](vent.md)
   - [搭建之路](wdnmd.md)
 
