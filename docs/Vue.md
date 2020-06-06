@@ -196,36 +196,13 @@ vue-lazyload一把梭~ 扩展v-指令 v-lazy储存图片地址实现图片懒加
 - 服务端渲染只支持beforCreate和created两个钩子函数，这会导致一些外部扩展库需要特殊处理。
 - 服务端渲染，顾名思义，你还得额外搞个server运行环境，资金得跟上。
 
-#### Webpack对图片进行压缩
-`image-webpack-loader` 压缩大图
-#### 提取公共代码
-Webpack 内置了专门用于提取多个Chunk 中的公共部分的插件 CommonsChunkPlugin，我们在项目中 CommonsChunkPlugin 的配置如下：
-```JavaScript
-// 所有在 package.json 里面依赖的包，都会被打包进 vendor.js 这个文件中。
-new webpack.optimize.CommonsChunkPlugin({
-  name: 'vendor',
-  minChunks: function(module, count) {
-    return (
-      module.resource &&
-      /\.js$/.test(module.resource) &&
-      module.resource.indexOf(
-        path.join(__dirname, '../node_modules')
-      ) === 0
-    );
-  }
-}),
-// 抽取出代码模块的映射关系
-new webpack.optimize.CommonsChunkPlugin({
-  name: 'manifest',
-  chunks: ['vendor']
-})
-```
+#### Webpack
+[Off u go](https://juejin.im/post/5c1fa158f265da613c09cb36)
 #### 开启 gzip 压缩
 查看Content-Encoding是否为gzip
 #### 浏览器缓存
-`强制缓存`和`协商缓存`,几个关键词：
-- If-Modified-Since：上次200的时候的服务器资源的最后修改时间
-- Last-Modified：服务器资源最后修改时间
-- Cache-Control：max-age=100000000
-- If-None-Match、ETag
-
+[详见](HTTP权威指南?id=浏览器缓存)
+#### CDN
+CDN 可以通过不同的域名来加载文件，从而使下载文件的并发连接数大大增加，且CDN 具有更好的可用性，更低的网络延迟和丢包率 。
+#### 使用 Chrome Performance 查看性能
+[懒得写](https://www.cnblogs.com/xiaohuochai/p/9182710.html)
