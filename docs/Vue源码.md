@@ -49,6 +49,14 @@ Vue框架使用rollup打包的，从`npm run dev`的命令上看寻找入口文�
     - callHook    执行beforeCreate
     - initInjections    注册inject
     - initState   初始化data  
+      - initProps   
+      - initMethods   
+      - initData    
+        - proxy(obj, source, key)   将obj[source]下的key代理到obj下: vm._data.text => vm.text
+        - observe   
+      - observe   定义响应式
+      - initComputed    
+      - initWatch   
     - initProvide   注册provide，init过程依赖于data props 所以在initState之后
     - callHook    执行created
     - 如果当前vm为根节点，则直接执行$mount
@@ -67,11 +75,12 @@ Vue框架使用rollup打包的，从`npm run dev`的命令上看寻找入口文�
     - $destroy    销毁实例，调用`beforeDestroy`  `_watcher,_watchers`??? `patch` 调用destroyed，清除实例下的所有event。
   - renderMixin   render.js
     - installRenderHelpers    卧槽
-    - $nextTick   [顺序](Vue?id=异步更新队列)
+    - $nextTick   [降级顺序](Vue?id=异步更新队列)
     > In problematic UIWebViews, Promise.then doesn't completely break, but it can get stuck in a weird state where callbacks are pushed into the microtask queue but the queue isn't being flushed, until the browser needs to do some other work, e.g. handle a timer. Therefore we can "force" the microtask queue to be flushed by adding an empty timer.
-    - _render ？？？？设置了一个parentNode 然后...没看懂 功力不够
+    - _render ？？？？设置了一个parentNode， 然后...没看懂 功力不够
 
 #### observe
-TODO
+- __ob__    代理Observer实例
+- defineReactive    收集依赖，数据劫持
 #### patch
 TODO

@@ -17,6 +17,7 @@
 - 面试题合集
   - [EventLoop](EventLoop.md) 
   - [PWA](PWA.md)
+  - [Video视频组件](Video视频播放.md)
   - [miniVue](miniVue.md)
   - [Vue性能优化](Vue性能优化.md)
   - [开发规范](开发规范.md) 
