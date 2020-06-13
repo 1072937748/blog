@@ -79,8 +79,24 @@ Vue框架使用rollup打包的，从`npm run dev`的命令上看寻找入口文�
     > In problematic UIWebViews, Promise.then doesn't completely break, but it can get stuck in a weird state where callbacks are pushed into the microtask queue but the queue isn't being flushed, until the browser needs to do some other work, e.g. handle a timer. Therefore we can "force" the microtask queue to be flushed by adding an empty timer.
     - _render ？？？？设置了一个parentNode， 然后...没看懂 功力不够
 
-#### observe
+#### Observer
+观察者：`defineReactive`
 - __ob__    代理Observer实例
 - defineReactive    收集依赖，数据劫持
+  !> 这里的get方法收集依赖时并非只有初始化的时候才执行。当watcher的update执行时也会触发，届时Dep.target会有值！！！！！
+
+#### Watcher
+监听器：保存data中数值和页面的关系
+- get   new Watcher时 立即调用，为Dep.target赋值，然后执行template中的表达式或者方法，触发defineReactive的get，进行收集依赖，并返回数据
+- addDep
+- update
+
+#### Dep
+管理依赖（watcher）
+- addSub
+- depend
+- notify
+
 #### patch
 TODO
+
