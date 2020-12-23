@@ -36,7 +36,8 @@ console.log(7);
 // 3
 // 6
 ```
-解析：三个概念：`堆栈队列、宏队列、微队列`。每轮执行顺序为`堆栈队列` > `微队列` > `宏队列`。
+*解析：三个概念：`堆栈队列、宏队列、微队列`。每轮执行顺序为`堆栈队列` > `微队列` > `宏队列`。*
+
 微队列：
 - Promise
 - process.nextTick
@@ -49,7 +50,7 @@ console.log(7);
 - setImmediate
 
 #### 任务优先级
-宏队列: 主代码块>setImmediate>MessageChannel>setTimeout / setInterval  
-微队列: process.nextTick>Promise=MutationObserver
+宏队列: 主代码块 > setImmediate > MessageChannel > setTimeout / setInterval  
+微队列: process.nextTick > Promise=MutationObserver
 #### NodeJs中的EventLoop
 欲言又止mmp...
