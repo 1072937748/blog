@@ -52,5 +52,12 @@ console.log(7);
 #### 任务优先级
 宏队列: 主代码块 > setImmediate > MessageChannel > setTimeout / setInterval  
 微队列: process.nextTick > Promise=MutationObserver
+
+###  图解
+
+<img src="https://segmentfault.com/img/remote/1460000008589740" alt="EventLoop" style="zoom:50%;" />
+
+
+
 #### NodeJs中的EventLoop
 欲言又止mmp...

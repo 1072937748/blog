@@ -89,4 +89,51 @@ this.$nextTick(() => console.log(el.innerText), 3);
 
 ## 图解助消化
 
-![img](..//assets/nextick.webp ":size=300x300")
+<img src="../assets/nextick.webp" alt="img" title=":size=200x200" style="zoom:45%;" />
+
+
+
+## 没用的小知识
+
+由于MutationObserver在IOS9.3的UIWebView里有bug，所以尤大在2.0的rc版本里nextTick有一版使用了window.postMessage代替MO，即task，这导致了UI的task优先级要高，更新DOM操作出现延迟的现象。然后这一更改就被撤回了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

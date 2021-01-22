@@ -1,11 +1,15 @@
-#### PWA   
-翻译过来是渐进式增强WEB应用，对标Native APP。目的就是在移动端利用提供的标准化框架，在网页应用中实现和原生应用相近的用户体验的渐进式网页应用。 
+#### PWA
 
-当用户开启APP时，通过service work立即加载渐进式web应用程序，完全不受网络环境的约束。service work就像一个客户端代理，它控制缓存以及如何响应资源请求逻辑，通过预缓存关键资源，可以消除对网络的依赖，确保为用户提供即时可靠的体验。
+翻译过来是渐进式增强 WEB 应用，对标 Native APP。目的就是在移动端利用提供的标准化框架，在网页应用中实现和原生应用相近的用户体验的渐进式网页应用。
+
+当用户开启 APP 时，通过 service work 立即加载渐进式 web 应用程序，完全不受网络环境的约束。service work 就像一个客户端代理，它控制缓存以及如何响应资源请求逻辑，通过预缓存关键资源，可以消除对网络的依赖，确保为用户提供即时可靠的体验。
 
 #### 示例
-下面从一个简单基础的pwa示例讲解：
-- PWA中包含的核心功能及特性如下：
+
+下面从一个简单基础的 pwa 示例讲解：
+
+- PWA 中包含的核心功能及特性如下：
+
   - Web App Manifest
   - Service Worker
   - Cache API 缓存
@@ -14,15 +18,17 @@
   - 响应式设计
 
 - 目录结构
+
 ```bash
 ├── index.html
 ├── static # 静态资源文件
-│   └── ... 
+│   └── ...
 └── manifest.json # 配置文件
-└── sw.js # 
+└── sw.js #
 ```
-manifest.json
+
 ```JSON
+  // manifest.json
   {
     "name": "一个PWA示例",
     "short_name": "PWA示例",
@@ -39,8 +45,9 @@ manifest.json
     ]
   }
 ```
-sw.js
+
 ```JavaScript
+// sw.js
   importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js");
   var cacheStorageKey = 'minimal-pwa-1'
   var cacheList=[
@@ -84,5 +91,6 @@ sw.js
   })
 ```
 
-#### PWA现状
+#### PWA 现状
+
 还不普及，国内好多浏览器还不支持。
