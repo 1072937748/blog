@@ -1,4 +1,4 @@
-# Webpack: 一个用来打包的东西，嗯...打包的。
+# Webpack
 
 ## 属性
 - entry: 入口
@@ -15,66 +15,36 @@
 - plugin:  打包优化的插件
 
 ## 快速上手
-```bash
-  npm init
-  npm install webpack-cli html-webpack-plugin url-loader file-loader mini-css-extract-plugin optmiize-css-assets-webpack-plugin -D
-  mkdir src && cd src
-  touch webpack.config.js
-```
-webpack.config.js
-```JavaScript
-const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptmiizeCssAssetsWebpackPlugin = require('optmiize-css-assets-webpack-plugin');
 
-module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
-  output: {
-    filename: 'index.js',
-    path: resolve(__dirname, 'dist'),
-  },
-  mdule: {
-    rules: [
-      {
-        test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /(jpeg|png|jpg|gif|svg)$/,
-        loader: 'url-loader',
-        options: {
-          esModule: true,
-          limit: 10 * 1024,
-          name: [hash:10].[ext],
-        }
-      }
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      minify: {
-        collapseWhitespace: true, // 删除空格
-        removeComments: true,  // 删除注释
-      }
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'dist/index.css'
-    }),
-    new OptmiizeCssAssetsWebpackPlugin()
-  ],
-  devServer: {
-    contentBase: resolve(__dirname, 'build'),
-    port: 3000,
-    compress: true,
-    open: true,
+### html-webpack-plugin
+- title 设置生成的html文件标题
+- filename 生成html文件的文件名
+- template 指定模板文件生成特定html文件
+- inject 
+  - true 默认值，script标签位于html文件的body底部
+  - body 同true
+  - head script位于head标签内
+  - false 不插入js文件
+- favicon 给生成的html添加一个favicon
+- minify 对html文件进行压缩，同`html-minify`的压缩选项一样
+- hash 给生成的js文件一个独特的hash值，该hash值是该次webpack编译的hash值。
+- cache 表示只有在内容变化时才生成一个新的文件
+- showErrors 显示错误信息
+- chunks 
+  ```js
+  // webpack.config.js
+  entry: {
+      index: path.resolve(__dirname, './src/index.js'),
+      index1: path.resolve(__dirname, './src/index1.js'),
+      index2: path.resolve(__dirname, './src/index2.js')
   }
-}
-
-```
+  ...
+  plugins: [
+      new HtmlWebpackPlugin({
+          ...
+          chunks: ['index','index2']
+      })
+  ]
+  ```
+- excludeChunks 与chunks相反，排除掉某些js文件
+- 
