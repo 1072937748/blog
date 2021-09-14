@@ -1,5 +1,5 @@
 ## webRTC
-网页即时通信，允许网络应用或站点在不借助中间媒介的情况下，建立浏览器之间点对点的链接，实现视频流或音频流或者其他任意数据的快速传输。
-组成形式：视频引擎、音效引擎、会议管理、ISAC（音效压缩）、VP8（谷歌自研的视频编解码器）、APIs（Native C++ API，Web API）。
+[详见](./webRTC.md)
 
 ## MSE(Media Source Extension) 
+[详见](./MSE.md)
