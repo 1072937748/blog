@@ -42,3 +42,4 @@
   - [搭建之路](吐槽/wdnmd.md)
   - [如何写md](吐槽/example.md)
   - [周易64卦](吐槽/周易.md)
+  - [OKJX](吐槽/OKJX.md)
