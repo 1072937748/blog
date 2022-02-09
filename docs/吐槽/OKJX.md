@@ -3,27 +3,46 @@ const OKJX_BASE_URL = 'https://okjx.cc/?url=';
 const playlistInput = document.querySelector('#playlist');
 const playBtns = document.querySelector('#play-btns');
 const videoFrame = document.querySelector('#videoFrame');
+let currentIndex = 0;
+let playlist = [];
 
-function playVideo(videourl) {
-  videoFrame.src = OKJX_BASE_URL + videourl;
+
+function playVideo(videourl, index) {
+  if(videourl){
+    videoFrame.src = OKJX_BASE_URL + videourl;
+    return;
+  }
+  document.querySelectorAll('#play-btns button')[index].click()
 }
 
-function transPlayBtn() {
-  const playlist = playlistInput.value.split(',');
+window.prev = function prev() {
+  if(!currentIndex) return;
+  currentIndex--;
+  playVideo(false, currentIndex);
+}
+window.next = function next() {
+  if(currentIndex === playlist.length) return;
+  currentIndex++;
+  playVideo(false, currentIndex);
+}
+
+window.transPlayBtn = function transPlayBtn() {
+  playlist = playlistInput.value.split(',');
   const _f = document.createDocumentFragment();
   playlist.forEach((it, i) => {
     const btnDom = document.createElement('button');
     btnDom.innerText = `第${i+1}集`;
+    btnDom.setAttribute('data-index', i);
     btnDom.onclick = function () {
       Array.from(document.querySelectorAll('#play-btns button')).forEach(it=>it.className = '');
       this.className = 'active';
-      playVideo(it)
+      playVideo(it);
+      currentIndex = i;
     }
     _f.appendChild(btnDom);
   })
   playBtns.appendChild(_f);
 }
-window.transPlayBtn = transPlayBtn;
 
 window.fullscreen = function fullscreen(){
   if(videoFrame.className === 'video-fullscreen') {
@@ -37,21 +56,34 @@ window.fullscreen = function fullscreen(){
 
 <input type="text" id="playlist">
 <button onclick="transPlayBtn()">获取播放列表</button>
-<button class="fullscreen" onclick="fullscreen()">全屏</button>
+<div class="tools">
+  <button class="btn fullscreen" onclick="fullscreen()">全屏</button>
+  <button class="btn prev" onclick="prev()">上一集</button>
+  <button class="btn next" onclick="next()">下一集</button>
+</div>
 <div id="play-btns"></div>
 <iframe id="videoFrame" width=600 height=400 src="" ></iframe>
 <style>
-  .fullscreen {
+  .tools {
     position: fixed;
     right: 0;
     bottom: 2vh;
-    padding: 2px 4px;
-    font-size: 18px;
-    color: #fff;
     z-index: 9999;
+  }
+  .btn {
+    margin: 2px;
+    padding: 2px 4px;
+    font-size: 12px;
+    color: #fff;
     background: skyblue;
     border: none;
     cursor: pointer;
+  }
+  .fullscreen {
+  }
+  .prev {
+  }
+  .next {
   }
   #videoFrame {
     resize: both;
