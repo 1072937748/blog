@@ -2,9 +2,9 @@
 const OKJX_BASE_URL = 'https://okjx.cc/?url=';
 const playlistInput = document.querySelector('#playlist');
 const playBtns = document.querySelector('#play-btns');
+const videoFrame = document.querySelector('#videoFrame');
 
 function playVideo(videourl) {
-  const videoFrame = document.querySelector('#videoFrame');
   videoFrame.src = OKJX_BASE_URL + videourl;
 }
 
@@ -25,13 +25,45 @@ function transPlayBtn() {
 }
 window.transPlayBtn = transPlayBtn;
 
+window.fullscreen = function fullscreen(){
+  if(videoFrame.className === 'video-fullscreen') {
+    videoFrame.className = '';
+    return;
+  }
+  videoFrame.className = 'video-fullscreen';
+}
+
 </script>
 
 <input type="text" id="playlist">
 <button onclick="transPlayBtn()">获取播放列表</button>
+<button class="fullscreen" onclick="fullscreen()">全屏</button>
 <div id="play-btns"></div>
 <iframe id="videoFrame" width=600 height=400 src="" ></iframe>
 <style>
+  .fullscreen {
+    position: fixed;
+    right: 0;
+    bottom: 2vh;
+    padding: 2px 4px;
+    font-size: 18px;
+    color: #fff;
+    z-index: 9999;
+    background: skyblue;
+    border: none;
+    cursor: pointer;
+  }
+  #videoFrame {
+    resize: both;
+  }
+  #videoFrame.video-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 900;
+  }
   #play-btns {
     display: flex;
     flex-wrap: wrap;
